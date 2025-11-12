@@ -79,8 +79,27 @@ python test_evaluator.py
 - `test_evaluator.py` - Classification accuracy evaluation script
 - `requirements.txt` - Python dependencies
 
+## Limitations
+
+### Image Quality Requirements
+
+The system's accuracy depends heavily on image quality. **Blurry or unclear images will result in poor extraction results.**
+
+#### Known Issues by Document Type
+
+The following document types have shown detection failures with unclear/blurry images:
+
+- **Bank Statements**: Images [2, 98]
+- **Check Statements**: Images [1, 3, 4, 88, 81, 83]
+- **ITR Forms 16**: Images [12, 14]
+- **Salary Slip**: Images [43, 101]
+- **Utility Bills**: Images [1, 91]
+
+**Note**: If the image quality is poor or text is difficult to read with the naked eye, the system will not be able to accurately predict the output.
+
 ## Troubleshooting
 
 - **Virtual environment not activating**: Ensure you're using PowerShell or Command Prompt (not Git Bash)
 - **API key errors**: Verify your `.env` file is in the project root and contains a valid OpenAI API key
 - **Module not found**: Run `pip install -r requirements.txt` again
+- **Poor extraction results**: Check image quality - ensure documents are clear and well-lit (see Limitations section)
